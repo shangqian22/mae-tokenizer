@@ -1,0 +1,11 @@
+#/etc/systemd/system/nvidia-smi.service
+\begin{lstlisting}[language=Awk,numbers=none]
+[Unit]
+Description=Load nvidia-smi for slurm gres
+
+[Service]
+ExecStart=/usr/bin/nvidia-smi
+
+[Install]
+WantedBy=multi-user.target
+\end{lstlisting}

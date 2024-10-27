@@ -1,0 +1,45 @@
+args: !!python/object:argparse.Namespace
+  accelerator: gpu
+  base_lr: -1
+  batch_size: 100
+  ckpt: version_57/checkpoints/epoch=399-step=250000.ckpt
+  data_path: /home/ebi/slurm/data
+  dataset: COCO
+  decoder_embed_dim: 96
+  depth: 12
+  embed_dim: 192
+  epochs: 100
+  gpus: 4
+  input_size: 256
+  levels: 4
+  log_dir: /home/ebi/slurm/log
+  lr: 0.004
+  max_time: null
+  min_keep_ratio: 0.3
+  mlp_ratio: 4
+  mode: finetune
+  model_name: yolos-method3
+  no_person: false
+  nodes: 2
+  norm_layer: !!python/object/apply:functools.partial
+    args:
+    - &id001 !!python/name:torch.nn.modules.normalization.LayerNorm ''
+    state: !!python/tuple
+    - *id001
+    - !!python/tuple []
+    - eps: 1.0e-06
+    - null
+  num_heads: 12
+  patch_size: 16
+  precision: 16-mixed
+  pretrained_dir: /home/ebi/slurm/ddp/project/pretrained
+  qkv_bias: true
+  resize_size: 32
+  resume_from_checkpoint: true
+  resumed_dir: /home/ebi/slurm/ddp/project/resumed
+  seed: 42
+  steps_per_gpu: 29400
+  strategy: ddp
+  trained_dir: /home/ebi/slurm/ddp/project/trained
+  version: ''
+  workers: 2
